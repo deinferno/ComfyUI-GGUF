@@ -496,7 +496,7 @@ def gguf_clip_loader(path):
             sd = gemma3_norm_corrections(sd)
         else:
             sd = sd_map_replace(sd, LLAMA_SD_MAP)
-        if arch == "llama":
+        if arch == "llama" or arch == "mistral3":
             sd = llama_permute(sd, 32, 8) # L3 / Mistral
         if arch == "qwen2vl":
             vsd = gguf_mmproj_loader(path)
